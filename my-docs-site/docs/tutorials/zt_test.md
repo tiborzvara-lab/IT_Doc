@@ -5,16 +5,17 @@ sidebar_position: 2
 date: 2025-02-12
 tags: [docusaurus, documentation]
 ---
-# Üdvözlet a Docusaurus Dokumentációban
+## Üdvözlet a Docusaurus Dokumentációban
 
 Ez egy egyszerű példa a Docusaurus ZT dokumentációs fájlhoz.
 
 ## Tartalomjegyzék
 
+- [Üdvözlet a Docusaurus Dokumentációban](#üdvözlet-a-docusaurus-dokumentációban)
+- [Tartalomjegyzék](#tartalomjegyzék)
 - [Bevezetés](#bevezetés)
 - [Telepítés](#telepítés)
-- [Használat](#használat)
-- [További információ](#további-információ)
+
 
 ## Bevezetés
 

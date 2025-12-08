@@ -6,6 +6,7 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
+
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
@@ -19,19 +20,28 @@ const config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
+//module.exports = {
+  // ...
+  //url: 'https://tiborzvara-lab.github.io', // Cseréld le a saját GitHub felhasználónevedre!
+  //baseUrl: '/IT_Doc/', // Cseréld le a repository nevére!
+  //organizationName: 'tiborzvara-lab', // A GitHub felhasználóneved
+  //projectName: 'IT_Doc', // A GitHub repository-d neve
+  //trailingSlash: false,
+  // ...
+//};
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://tiborzvara-lab.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/IT_Doc/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
-  onBrokenLinks: 'throw',
-
+   organizationName: 'tiborzvara-lab', // Usually your GitHub org/user name.
+   projectName: 'IT_Doc', // Usually your repo name.
+   trailingSlash: false,
+   onBrokenLinks: 'throw',
+   onBrokenMarkdownLinks: 'throw',
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -47,6 +57,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          docItemComponent: "@theme/ApiItem", // Az API elemek komponensei, add hozzá ezt a sort
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -74,6 +85,26 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: 'openapi', // A plugin egyedi azonosítója
+        docsPluginId: 'classic',
+        config: {
+          petstore: {  // Egyedi azonosító az API doksinak
+            specPath: 'openapi/petstore-api.yaml', // Az OpenAPI fájl elérési útja
+            outputDir: 'docs/petstore', // A generált Markdown fájlok helye
+            sidebarOptions: {
+              groupPathsBy: 'tag',  // Csoportosítás tagek alapján az oldalsávban
+            },
+            // További opciók a plugin dokumentációja szerint
+          },
+        }
+      }
+    ]
+  ],
+  themes: ['docusaurus-theme-openapi-docs'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -90,13 +121,20 @@ const config = {
         },
         items: [
           {
+            type: 'docSidebar', // Ha külön oldalsávot használsz az API-hoz
+            sidebarId: 'myApiSidebar', // Az API oldalsávjának ID-ja a sidebars.js-ből
+            label: 'Petstore API',
+            position: 'left',
+          },
+
+          {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Tutorial',
           },
 
-           {
+          {
             type: 'docSidebar',
             sidebarId: 'guideSidebar',
             position: 'left',
@@ -164,5 +202,15 @@ const config = {
       },
     }),
 };
+
+//module.exports = {
+  // ...
+  //url: 'https://tiborzvara-lab.github.io', // Cseréld le a saját GitHub felhasználónevedre!
+  //baseUrl: '/IT_Doc/', // Cseréld le a repository nevére!
+  //organizationName: 'tiborzvara-lab', // A GitHub felhasználóneved
+  //projectName: 'IT_Doc', // A GitHub repository-d neve
+  //trailingSlash: false,
+  // ...
+//};
 
 export default config;

@@ -13,20 +13,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
 
       - name: Install dependencies
+        working-directory: ./IT_Doc  # Használja a megfelelő mappát
         run: npm install
 
       - name: Build Docusaurus site
+        working-directory: ./IT_Doc  # Használja a megfelelő mappát
         run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./IT_Doc/build
-          
+          publish_dir: ./IT_Doc/build  # Adjust this path based on your structure

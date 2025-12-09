@@ -1,3 +1,8 @@
+---
+title: 5 oldal
+sidebar_position: 6
+---
+
 ### 3. usage-examples.md
 
 ```markdown

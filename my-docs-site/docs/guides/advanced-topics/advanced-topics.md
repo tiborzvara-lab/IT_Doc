@@ -1,3 +1,8 @@
+---
+title: Advanced Topics
+sidebar_position: 2
+---
+
 # Advanced Topics
 
 ## 1. Performance Optimization

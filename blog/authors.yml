@@ -23,3 +23,10 @@ slorber:
     linkedin: sebastienlorber
     github: slorber
     newsletter: https://thisweekinreact.com
+
+# Add your own authors here
+tiborzvara:
+  name: Tibor Zvara
+  title: Sw development engineer
+  url: http://zt-elektronika.hu/main/hufiles/hucontact.htm
+  

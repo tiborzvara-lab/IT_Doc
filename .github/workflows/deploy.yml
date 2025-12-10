@@ -25,7 +25,7 @@ jobs:
         run: yarn install
       # Adjuk hozzá ezt a lépést, hogy az API specifikáció is felépüljön.
       - name: Build API Docs
-        run: yarn docusaurus gen-api
+        run: yarn docusaurus gen-api-docs all
       - name: Build website
         run: yarn build
 

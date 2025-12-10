@@ -19,15 +19,29 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
+<<<<<<< HEAD
         working-directory: IT_Doc  # Ensure this points to the correct directory
         run: npm install
 
       - name: Build Docusaurus site
         working-directory: IT_Doc  # Ensure this points to the correct directory
         run: npm run build
+=======
+        run: yarn install
+      # Adjuk hozzá ezt a lépést, hogy az API specifikáció is felépüljön.
+      - name: Build API Docs
+        run: yarn gen-api
+      - name: Build website
+        run: yarn build
+>>>>>>> 5af1bec7c9801d00a56ba2cd0f0517f158d14450
 
       - name: Deploy to GitHub Pages
+<<<<<<< HEAD
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./IT_Doc/build  # Adjust this if necessary
+=======
+        id: deployment
+        uses: actions/deploy-pages@v4
+>>>>>>> 5af1bec7c9801d00a56ba2cd0f0517f158d14450
